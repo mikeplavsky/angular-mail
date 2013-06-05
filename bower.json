@@ -1,0 +1,14 @@
+{
+  "name": "angular-mail",
+  "version": "0.0.0",
+  "main": "public/app.js",
+  "dependencies": {
+    "angular": "~1.0.7",
+    "angular-mocks": "~1.0.7"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}

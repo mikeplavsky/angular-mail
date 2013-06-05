@@ -6,6 +6,15 @@ appModule.directive( "ngbkFocus", function() {
   }};
 });
 
+function NamesListCtrl($scope, $http) {
+
+  $http.get('http://server/names', {params: {filter: 'none'}}).
+      success(function(data) {
+        $scope.names = data;
+      });
+
+}
+
 function SomeController($scope) {
 
   $scope.message = {text: "nothing clicked yet"};
