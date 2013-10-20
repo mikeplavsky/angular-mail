@@ -1,4 +1,4 @@
-var appModule = angular.module( "app", [] );
+var appModule = angular.module( "app", ["ngResource"] );
 
 appModule.directive( "ngbkFocus", function() {
   return {link: function(scope, element, attrs, controller) {
@@ -14,6 +14,39 @@ function NamesListCtrl($scope, $http) {
       });
 
 }
+
+function MainCtrl($scope, Posts) {
+
+  Posts.getPosts().success(function(data){
+    $scope.posts = data.posts;
+  });
+
+}
+
+appModule.directive("boldClick", function() {
+
+  return function(scope, element) {
+    var bold = false;
+    element.bind( 'click', function(){
+      if (bold) {
+        element.css('font-weight', 'normal');
+      }
+      else {
+        element.css('font-weight', 'bold');
+      }
+      bold = !bold;
+    });
+  };
+
+});
+
+appModule.service( "Posts", function($http) {
+
+  this.getPosts = function() {
+    return $http.get("data.json");
+  };
+
+});
 
 function SomeController($scope) {
 

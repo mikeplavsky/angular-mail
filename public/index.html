@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html ng-app='app'>
   <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.js"></script>
+    <script src="angular/angular.js"></script>
+    <script src="angular-resource/angular-resource.js"></script>
     <script src="app.js"></script>
   </head>
 <body ng-controller="SomeController">
   <button ng-click="clickUnfocused()">Not focused</button>
   <button id="focused-btn" ngbk-focus ng-click="clickFocused()">Focused</button>
   <div>{{message.text}}</div>
+  
+  <div ng-controller="MainCtrl">
+    <div id="posts">
+    <div id="posts">
+      <h2>{{posts[0].title}}</h2>
+      <p bold-click>{{posts[0].body}}</p>
+    </div>
+      <h2>{{posts[1].title}}</h2>
+      <p bold-click>{{posts[0].body}}</p>
+    </div>
+  </div>
+
 </body>
 
 
