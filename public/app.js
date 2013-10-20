@@ -43,17 +43,23 @@ appModule.directive("boldClick", function() {
 appModule.service( "Posts", function($http) {
 
   this.getPosts = function() {
-    return $http.get("data.json");
+    return $http.get("data1.json");
   };
 
 });
 
-function SomeController($scope) {
+function SomeController($scope, Posts) {
 
   $scope.message = {text: "nothing clicked yet"};
 
   $scope.clickUnfocused = function() {
-    $scope.message.text = "Unfocused button clicked";
+    $scope.message.text = "Super  Unfocused button clicked";
+    
+    Posts.getPosts().success(function(data){
+      $scope.posts = data.posts;
+    });
+
+    
   };
 
   $scope.clickFocused = function() {
