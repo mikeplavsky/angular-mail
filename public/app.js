@@ -43,7 +43,7 @@ appModule.directive("boldClick", function() {
 appModule.service( "Posts", function($http) {
 
   this.getPosts = function() {
-    return $http.get("data1.json");
+    return $http.get("data.json"); 
   };
 
 });
